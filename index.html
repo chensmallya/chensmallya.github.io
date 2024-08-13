@@ -3,9 +3,42 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>我的作品</title>
+    <style type="text/css">
+        #message {
+          font-size: 30px;
+          color: red;
+          font-weight: bold;
+        }
+    </style>
 </head>
 
 <body class="login-body">
-    吴总好~！
+    <div id="message">吴总牛逼</div>
+    <script>
+    function shakeMessage() {
+      const message = document.getElementById('message');
+      const originalStyle = message.style.cssText;
+      let count = 10;
+     
+      const shake = () => {
+        if (count-- > 0) {
+          message.style.cssText = 'margin-left: 10px;';
+          setTimeout(() => {
+            message.style.cssText = 'margin-left: -10px;';
+            setTimeout(() => {
+              message.style.cssText = '';
+              shake();
+            }, 20);
+          }, 20);
+        } else {
+          message.style.cssText = originalStyle;
+        }
+      };
+     
+      shake();
+    }
+     
+    shakeMessage();
+    </script>
 </body>
 </html>
